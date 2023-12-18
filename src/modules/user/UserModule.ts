@@ -4,11 +4,12 @@ import { generateHash, verifyHash } from "../../helpers/encryption";
 import { generateToken } from "../../helpers/jsonwebtoken";
 import nodemailer from "nodemailer";
 import crypto from "crypto";
-
+import { PrismaClient, Prisma } from "@prisma/client";
 export class UserModule {
   static async login(req: Request, res: Response) {
     try {
       const { email, password } = req.body;
+      const prisma = new PrismaClient();
       /*
       //Verify email
       const user = await User.findOne({
