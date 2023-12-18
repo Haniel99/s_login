@@ -9,7 +9,7 @@ export class UserModule {
   static async login(req: Request, res: Response) {
     try {
       const { email, password } = req.body;
-
+      /*
       //Verify email
       const user = await User.findOne({
         where: { email: email },
@@ -41,7 +41,7 @@ export class UserModule {
           user: user,
           jwt: jwt,
         },
-      });
+      });*/
     } catch (error) {
       errorHandler(res);
     }
@@ -49,7 +49,7 @@ export class UserModule {
   static async validaEmail(req: Request, res: Response) {
     try {
       const { email } = req.body;
-      const user = await User.findOne({
+      /*const user = await User.findOne({
         where: { email: email },
       });
       if (!user) {
@@ -60,7 +60,7 @@ export class UserModule {
         state: true,
         msg: "User registered",
         res: user,
-      });
+      });*/
     } catch (error) {
       errorHandler(res, error);
     }

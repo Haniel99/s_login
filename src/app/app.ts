@@ -2,7 +2,6 @@ import express, { Application } from "express";
 import cors from "cors";
 import { json } from "body-parser";
 import { RouterApp } from "./app.router";
-import sequelize from "../configs/config";
 
 /**
  *
@@ -37,13 +36,7 @@ export class App {
   }
 
   private async connectDB(): Promise<any> {
-    try {
-      await sequelize.sync({ force: false });
-      console.log("Connected to the database successfully.");
-    } catch (error) {
-      console.log(error);
-      throw new Error("Error connecting to database.");
-    }
+    
   }
   /**
    *
